@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JIRA Copy Ticket Info Settings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 5px 10px 5px 10px;
+            width: 450px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .auth-creds {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        input[type="text"], input[type="password"] {
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .project-mapping {
+            display: grid;
+            grid-template-columns: 1fr 150px 100px 30px;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .project-mapping input {
+            width: 100%;
+        }
+
+        .project-mapping .subdomain, .project-mapping .project_id, .project-mapping .shortcode {
+            box-sizing: border-box;
+        }
+
+        .project-mapping .project_id {
+        }
+
+        .project-mapping button {
+            background-color: red;
+            color: white;
+            cursor: pointer;
+            height: 38px;
+            width: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            box-sizing: border-box;
+        }
+
+        .categories-title {
+            font-family: Arial, sans-serif;
+        }
+
+        .category-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 10px;
+            justify-content: space-between;
+        }
+
+        .category-pair input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        #addMapping {
+            background-color: #4CAF50;
+        }
+
+        #addMapping:hover {
+            background-color: #45a049;
+        }
+
+        #save {
+            background-color: #4CAF50;
+        }
+
+        #save:hover {
+            background-color: #45a049;
+        }
+
+        .work-from-wrapper {
+            display: grid;
+            grid-template-columns: 60px 1fr;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .icon-toggle {
+            display: flex;
+            width: 70px;
+            gap: 10px;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .icon-toggle label {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+            background-color: white;
+        }
+
+        .icon-toggle input {
+            display: none;
+        }
+
+        .icon-toggle label svg {
+            width: 20px;
+            height: 20px;
+            fill: #333333;
+        }
+
+        .icon-toggle input:checked + label {
+            background-color: #333333;
+        }
+
+        .icon-toggle input:checked + label svg {
+            fill: white;
+        }
+    </style>
+</head>
+<body>
+<h2>Jira to Cerber timer start config</h2>
+<div class="auth-creds">
+    <div>
+        <label for="email">Cerber Email</label>
+        <input type="text" id="email" name="email">
+    </div>
+    <div>
+        <label for="password">Cerber Password</label>
+        <input type="password" id="password" name="password">
+    </div>
+</div>
+
+<div class="work-from-wrapper">
+    <div>
+        Work from:
+    </div>
+    <div>
+        <div class="icon-toggle">
+            <input type="radio" id="OFFICE" name="location" value="OFFICE">
+            <label for="OFFICE">
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="building"
+                     class="svg-inline--fa fa-building fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 448 512">
+                    <path d="M436 480h-20V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v456H12c-6.627 0-12 5.373-12 12v20h448v-20c0-6.627-5.373-12-12-12zM128 76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76zm0 96c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40zm52 148h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12zm76 160h-64v-84c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v84zm64-172c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40z"></path>
+                </svg>
+            </label>
+
+            <input type="radio" id="WFH" name="location" value="WFH" checked>
+            <label for="WFH">
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home"
+                     class="svg-inline--fa fa-home fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 576 512">
+                    <path d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path>
+                </svg>
+            </label>
+        </div>
+    </div>
+</div>
+
+<h3 class="categories-title">Category IDs</h3>
+<div class="category-pair">
+    <div>
+        <label for="analysis_category_id">Analysis</label>
+        <input type="text" id="analysis_category_id" name="analysis_category_id" value="5">
+    </div>
+    <div>
+        <label for="development_category_id">Development</label>
+        <input type="text" id="development_category_id" name="development_category_id" value="8">
+    </div>
+    <div>
+        <label for="meeting_category_id">Meeting</label>
+        <input type="text" id="meeting_category_id" name="meeting_category_id" value="4">
+    </div>
+    <div>
+        <label for="bug_fixing_category_id">Bug Fixing</label>
+        <input type="text" id="bug_fixing_category_id" name="bug_fixing_category_id" value="13">
+    </div>
+</div>
+
+<div id="projectMappings"></div>
+<button id="addMapping">Add Project Mapping</button>
+<button id="save">Save</button>
+<script src="popup.js"></script>
+</body>
+</html>

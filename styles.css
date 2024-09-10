@@ -1,0 +1,14 @@
+.button-highlight {
+    transition: background-color 0.5s ease;
+    background-color: #80F39F !important;
+}
+
+.button-error {
+    transition: background-color 0.5s ease;
+    background-color: #FF0000 !important;
+}
+
+.button-in-progress {
+    background-color: #0000FF !important;
+}
+
