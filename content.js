@@ -6,7 +6,7 @@ function addCopyButtons() {
     if (!actionsWrapper) {
         const buttonElement = document.querySelector('button[data-testid="issue-view-foundation.quick-add.quick-add-items-compact.add-button-dropdown--trigger"]');
         if (buttonElement) {
-            actionsWrapper = buttonElement.closest('div[role="presentation"]').parentElement;
+            actionsWrapper = buttonElement.parentElement.parentElement;
             withButtonMargins = false;
         }
     }
