@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "JIRA-Cerber | Copy Ticket Info/Start Cerber Timer",
-  "version": "0.10.5",
+  "version": "0.10.6",
   "description": "Adds Cerber's buttons next to JIRA actions",
   "permissions": [
     "clipboardWrite",

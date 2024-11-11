@@ -6,8 +6,11 @@ function addCopyButtons() {
     if (!actionsWrapper) {
         const buttonElement = document.querySelector('button[data-testid="issue-view-foundation.quick-add.quick-add-items-compact.add-button-dropdown--trigger"]');
         if (buttonElement) {
-            actionsWrapper = buttonElement.parentElement.parentElement;
-            withButtonMargins = false;
+            const presentationParent = buttonElement.closest('[role="presentation"]');
+            if (presentationParent) {
+                actionsWrapper = presentationParent.parentElement;
+                withButtonMargins = false;
+            }
         }
     }
 

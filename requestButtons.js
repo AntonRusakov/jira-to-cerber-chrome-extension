@@ -8,7 +8,7 @@ function createSendRequestButton(ticketNumber, ticketTitle, apiUrl, category, ca
     sendRequestButton.style.width = '32px';
     sendRequestButton.style.height = '32px';
     sendRequestButton.style.border = '0';
-    sendRequestButton.style.marginLeft = '8px';
+    sendRequestButton.style.marginLeft = '2px';
     sendRequestButton.style.padding = '6px';
     sendRequestButton.style.display = 'flex';
     sendRequestButton.style.alignItems = 'center';
