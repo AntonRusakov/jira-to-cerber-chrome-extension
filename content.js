@@ -11,6 +11,10 @@ function addCopyButtons() {
                 actionsWrapper = presentationParent.parentElement;
                 withButtonMargins = false;
             }
+            if (!presentationParent) {
+                actionsWrapper = buttonElement.parentElement.parentElement;
+                withButtonMargins = false;
+            }
         }
     }
 
